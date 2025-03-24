@@ -1,5 +1,19 @@
 name: Events Demo 1
-on: ...
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+    paths:
+      - 'src/**'
+      - 'package.json'
+  pull_request:
+    branches:
+      - main
+    types: [opened, reopened, synchronize]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
